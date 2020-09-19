@@ -7,10 +7,11 @@ namespace App\Controller;
 use App\Service\Greeting;
 use App\Service\VeryBadDesign;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BlogController extends AbstractController
+class BlogController extends Controller
 {
     /**
      * @var Greeting
@@ -24,10 +25,11 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/", name="blog_index")
+     * @Route("/{name}", name="blog_index")
      */
-    public function index(Request $request){
+    public function index(string $name){
+        $this->get('miservicio.greeting');
         return $this->render('base.html.twig',
-            ['message'=>$this->greeting->greet($request->get('name'))]);
+            ['message'=>"el parametro es: ". $name]);
     }
 }
