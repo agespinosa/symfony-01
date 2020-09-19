@@ -20,6 +20,6 @@ class Greeting
 
     public function greet(string $name): string {
         $this->logger->info("Entro al metodo greet del servicio Greeting con el nombre $name");
-        return "Hola $name";
+        return "Hola como estas? $name";
     }
 }

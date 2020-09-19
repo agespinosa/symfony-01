@@ -16,15 +16,11 @@ class BlogController extends AbstractController
      * @var Greeting
      */
     private $greeting;
-    /**
-     * @var VeryBadDesign
-     */
-    private $veryBadDesign;
 
-    public function __construct(Greeting $greeting, VeryBadDesign $veryBadDesign)
+    public function __construct(Greeting $greeting)
     {
         $this->greeting = $greeting;
-        $this->veryBadDesign = $veryBadDesign;
+        //$this->veryBadDesign = $veryBadDesign;
     }
 
     /**

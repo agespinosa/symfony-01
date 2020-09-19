@@ -28,9 +28,9 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
-    miservicio.greeting:
-        public: true
-        alias: App\Service\Greeting
+#    miservicio.greeting:
+#        public: true
+#        alias: App\Service\Greeting
 #    App\Controller\BlogController: ['@App\Service\Greeting']
 #    App\Service\Greeting: ['@monolog.logger']
 
