@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @Route("/blog")
@@ -57,7 +58,8 @@ class BlogController extends Controller
         $posts= $this->session->get('posts');
         $posts[uniqid()]=[
             'title'=> 'A random title '.rand(1,500),
-            'text'=> 'Some random text nr '.rand(1,500)
+            'text'=> 'Some random text nr '.rand(1,500),
+            'date'=> new \DateTime(),
         ];
         $this->session->set('posts', $posts);
         return new RedirectResponse($this->router->generate('blog_index'));
